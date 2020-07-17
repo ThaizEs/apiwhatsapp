@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mensajes Whatsp</title>
+	<style>
+		.icon-ww{
+			width:  60px;
+			height: 60px;
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			cursor:pointer;
+		}
+		.icon-ww:active{
+			transform: scale(0.9);
+
+		}
+
+       .form-ww{
+          	width:  220px;
+			height: 280px;
+			background:white;
+			position: fixed;
+			bottom: 80px;
+			right: 50px;
+			box-shadow: 0 2px 20px 0 rgba(0,0,0,0.22);
+			border-radius: 5px;
+			padding: 10px;
+			display: none;
+
+
+       }
+       .entrasalir{
+       	display: block;
+
+       }
+       .inws{
+       	width: 100%;
+       	padding: 5px;
+       	color: #666;
+       	box-sizing: border-box;
+       	border-radius: 5px;
+       	border-radius: 1px  solid rgba(0,0,0,0.19)
+
+       }
+
+       .inws:focus{
+       	outline: none;
+
+       }
+       .txtrea{
+       	width: 100%;
+       	min-width: 100%;
+       	max-width: 100%;
+       	padding: 5px;
+       	color: #666;
+       	height: 120px;
+       	min-height: 120px;
+        max-height: 120px;
+       	box-sizing: border-box;
+       	border-radius: 5px;
+       	border-radius: 1px  solid rgba(0,0,0,0.19)
+       }
+
+       .txtrea:focus{
+       	outline: none;
+
+       }
+       .bts{
+    width: 100%;
+    background: blueviolet;
+    border: none;
+    border: none;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+
+       }
+	
+	</style>
+</head>
+<body>
+	<a href="https://api.whatsapp.com/send?phone=593997930314&text=hola%20thaiz" target="_blank">api whatsapp </a>
+	<div>
+		<form class="form-ww"  action="" id="form">
+			<p>New Message</p>
+			<label for="">Nombre:</label>
+			<input class="inws" type="text" placeholder="Nombre">
+			<label for="">Mensaje</label>
+			<textarea class="txtrea"  name="" id="" cols="30" rows="10" ></textarea>
+			<button class="bts" id="bosend">Send Message </button>
+		</form>
+		<img class="icon-ww"src="ws.png" alt="" id="wtsi" >
+	</div>
+	<script>
+		var bts= document.querySelector('#wtsi');
+		var form= document.querySelector('#form');
+		var bosend= document.querySelector('#bosend');
+
+	      bts.addEventListener('click',function (){
+      	form.classList.toggle('entrasalir')
+	      })
+	      bosend.addEventListener('click', enviarmensaje)
+	      function enviarmensaje(){
+	      	var inputName= document.querySelector('.inws').value
+	      	var textareaMensaje= document.querySelector('.txtrea').value
+	      	let url=
+	      	"https://api.whatsapp.com/send?phone=593997930314&text=Nombre: %0A" + inputName +    "%0A%0AMensaje: %0A" + textareaMensaje +"%0A";
+	      	window.open(url);
+
+	      }
+	</script>
+
+</body>
+</html>
